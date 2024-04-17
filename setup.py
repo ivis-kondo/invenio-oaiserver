@@ -16,18 +16,14 @@ readme = open('README.rst').read()
 history = open('CHANGES.rst').read()
 
 tests_require = [
-    'SQLAlchemy-Continuum>=1.2.1',
-    'check-manifest>=0.25',
-    'coverage>=4.0',
-    'invenio-indexer>=1.0.0',
-    'invenio-jsonschemas>=1.0.0',
-    'invenio-marc21>=1.0.0a8',
-    'isort>=4.2.2',
-    'mock>=1.3.0',
-    'pydocstyle>=1.0.0',
-    'pytest-cov>=1.8.0',
-    'pytest-pep8>=1.0.6',
-    'pytest>=2.8.0,!=3.3.0',
+    'coverage>=4.5.3,<5.0.0',
+    'mock>=3.0.0,<4.0.0',
+    'pytest>=4.6.4,<5.0.0',
+    'pytest-cache',
+    'pytest-cov',
+    'pytest-pep8',
+    'pytest-invenio',
+    'responses',
 ]
 
 invenio_search_version = '1.0.0'
@@ -75,15 +71,15 @@ for name, reqs in extras_require.items():
 
 setup_requires = [
     'Babel>=1.3',
-    'pytest-runner>=2.6.2',
+    'pytest-runner>=3.0.0,<5',
 ]
 
 install_requires = [
     'Flask>=0.11.1',
     'Flask-BabelEx>=0.9.2',
     'dojson>=1.2.0',
-    'invenio-pidstore>=1.0.0',
-    'invenio-records>=1.0.0',
+    'invenio-pidstore>=1.0.0b2',
+    'invenio-records>=1.0.0b3',
     'lxml>=3.5.0',
     'marshmallow>=2.7.0',
     'webargs>=1.3.2',
@@ -129,6 +125,7 @@ setup(
         ],
         'invenio_admin.views': [
             'invenio_oaiserver = invenio_oaiserver.admin:set_adminview',
+            'invenio_oaiserver_aa = invenio_oaiserver.admin:set_OAIPMHview'
         ],
         'invenio_jsonschemas.schemas': [
             'oaiserver = invenio_oaiserver.schemas',
